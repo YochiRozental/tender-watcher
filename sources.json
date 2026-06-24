@@ -1,0 +1,27 @@
+[
+  {
+    "city": "טבריה",
+    "name": "עיריית טבריה - מכרזים",
+    "url": "https://www.tiberias.muni.il/council_services/toshav/bids/"
+  },
+  {
+    "city": "טבריה",
+    "name": "עיריית טבריה - ארכיון מכרזים",
+    "url": "https://www.tiberias.muni.il/bids/"
+  },
+  {
+    "city": "טבריה",
+    "name": "החברה הכלכלית טבריה",
+    "url": "https://www.calcalit-tverya.co.il/Pages/tenders.aspx"
+  },
+  {
+    "city": "בני ברק",
+    "name": "עיריית בני ברק - מכרזים",
+    "url": "https://www.bnei-brak.muni.il/freedom-information/bids/bids-2/"
+  },
+  {
+    "city": "בני ברק",
+    "name": "עיריית בני ברק - ארכיון מכרזים",
+    "url": "https://www.bnei-brak.muni.il/bids/category/mikhrazim/"
+  }
+]

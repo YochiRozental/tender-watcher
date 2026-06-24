@@ -1,2 +1,12 @@
-# tender-watcher
-Python automation for monitoring public tenders, filtering relevant architecture opportunities, and sending alerts.
+# Tender Watcher
+
+Automated tender monitoring system for architectural opportunities.
+
+## Features
+
+- Scan municipal tender websites
+- Filter architecture-related tenders
+- Future support:
+  - GPT classification
+  - Google Sheets
+  - WhatsApp notifications
