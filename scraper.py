@@ -43,12 +43,23 @@ def scan_source(source: dict) -> list[dict]:
             href,
         )
         clean_title = title
+        is_pdf = full_url.lower().endswith(".pdf")
+        is_tender_page = (
+                "/bids/" in full_url
+                or "/gd_bids/" in full_url
+                or "michraz" in full_url.lower()
+                or "tender" in full_url.lower()
+                or "מכרז" in full_url
+        )
 
+        if not is_pdf and not is_tender_page:
+            continue
         if (
                 title.lower() == "מסמכי המכרז"
                 or title.lower() == "קישור לתשלום"
         ):
             clean_title = title_from_url(full_url)
+
         if full_url in seen_urls:
             continue
 

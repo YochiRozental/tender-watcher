@@ -23,5 +23,15 @@
     "city": "בני ברק",
     "name": "עיריית בני ברק - ארכיון מכרזים",
     "url": "https://www.bnei-brak.muni.il/bids/category/mikhrazim/"
+  },
+  {
+    "city": "ארצי",
+    "name": "מינהל הרכש הממשלתי",
+    "url": "https://mr.gov.il"
+  },
+  {
+    "city": "ארצי",
+    "name": "החברה למשק וכלכלה",
+    "url": "https://www.mashcal.co.il"
   }
 ]
