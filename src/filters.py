@@ -1,4 +1,4 @@
-from constants import (
+from src.constants import (
     TENDER_KEYWORDS,
     ARCHITECTURE_KEYWORDS,
 )

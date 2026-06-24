@@ -3,12 +3,15 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-from filters import (
+from src.filters import (
     is_tender,
     is_architecture_related,
 )
-from utils import title_from_url, extract_tender_number
 
+from src.utils import (
+    title_from_url,
+    extract_tender_number,
+)
 
 def scan_source(source: dict) -> list[dict]:
     print(f"\nבודק מקור: {source['name']}")
