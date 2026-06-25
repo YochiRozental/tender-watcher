@@ -7,11 +7,11 @@ from src.filters import (
     is_tender,
     is_architecture_related,
 )
-
 from src.utils import (
     title_from_url,
     extract_tender_number,
 )
+
 
 def scan_source(source: dict) -> list[dict]:
     print(f"\nבודק מקור: {source['name']}")
@@ -79,6 +79,7 @@ def scan_source(source: dict) -> list[dict]:
                 "source": source["name"],
                 "title": clean_title,
                 "url": full_url,
+                "source_page_url": source["url"],
                 "tender_number": extract_tender_number(clean_title),
                 "architecture_related": is_architecture_related(search_text),
             }
