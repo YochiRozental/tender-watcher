@@ -1,8 +1,9 @@
 import json
+from datetime import date
 
 from src.config import SOURCES_FILE
-from src.scraper import scan_source
 from src.notifier import send_to_make
+from src.scraper import scan_source
 
 
 def load_sources() -> list[dict]:
@@ -44,12 +45,25 @@ def get_architecture_tenders(items: list[dict]) -> list[dict]:
     return results
 
 
+def add_date_found(items: list[dict]) -> list[dict]:
+    today = date.today().isoformat()
+
+    return [
+        {
+            "date_found": today,
+            **item,
+        }
+        for item in items
+    ]
+
+
 def main() -> None:
     sources = load_sources()
     all_results = collect_tenders(sources)
     architecture_tenders = get_architecture_tenders(all_results)
+    items_to_send = add_date_found(architecture_tenders)
 
-    send_to_make(architecture_tenders)
+    send_to_make(items_to_send)
 
     print("\n======================")
     print(f"סה״כ נמצאו {len(all_results)} תוצאות")
