@@ -5,6 +5,7 @@ from src.config import SOURCES_FILE
 from src.notifier import send_to_make
 from src.scraper import scan_source
 from src.url_checker import is_url_accessible
+from src.utils import encode_url
 
 
 def load_sources() -> list[dict]:
@@ -53,6 +54,7 @@ def add_date_found(items: list[dict]) -> list[dict]:
         {
             "date_found": today,
             **item,
+            "safe_url": encode_url(item["url"]),
         }
         for item in items
     ]

@@ -1,6 +1,11 @@
 import re
 from pathlib import Path
+from urllib.parse import quote
 from urllib.parse import unquote, urlparse
+
+
+def encode_url(url: str) -> str:
+    return quote(url, safe=":/?&=#%")
 
 
 def title_from_url(url: str) -> str:
