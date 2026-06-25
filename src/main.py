@@ -1,10 +1,8 @@
 import json
 
 from src.config import SOURCES_FILE
-from src.exporter import export_new_tenders
-from src.notifier import send_to_make
 from src.scraper import scan_source
-from src.storage import load_seen_urls, save_seen_urls
+from src.notifier import send_to_make
 
 
 def load_sources() -> list[dict]:
@@ -27,46 +25,38 @@ def collect_tenders(sources: list[dict]) -> list[dict]:
     return all_results
 
 
-def get_new_architecture_tenders(items: list[dict]) -> list[dict]:
-    already_seen_urls = load_seen_urls()
-    urls_found_this_run = set()
-    new_items = []
+def get_architecture_tenders(items: list[dict]) -> list[dict]:
+    results = []
+    seen_urls = set()
 
     for item in items:
-        url = item["url"]
-
-        urls_found_this_run.add(url)
-
         if not item["architecture_related"]:
             continue
 
-        if url in already_seen_urls:
+        url = item["url"]
+
+        if url in seen_urls:
             continue
 
-        if any(existing["url"] == url for existing in new_items):
-            continue
+        seen_urls.add(url)
+        results.append(item)
 
-        new_items.append(item)
-
-    save_seen_urls(already_seen_urls | urls_found_this_run)
-
-    return new_items
+    return results
 
 
 def main() -> None:
     sources = load_sources()
     all_results = collect_tenders(sources)
-    new_tenders = get_new_architecture_tenders(all_results)
+    architecture_tenders = get_architecture_tenders(all_results)
 
-    export_new_tenders(new_tenders)
-    send_to_make(new_tenders)
+    send_to_make(architecture_tenders)
 
     print("\n======================")
     print(f"סה״כ נמצאו {len(all_results)} תוצאות")
-    print(f"מכרזים חדשים רלוונטיים: {len(new_tenders)}")
+    print(f"מכרזים רלוונטיים לאדריכלות: {len(architecture_tenders)}")
     print("======================\n")
 
-    for item in new_tenders:
+    for item in architecture_tenders:
         print(f"{item['city']} | {item['source']}")
         print(item["title"])
         print(item["url"])
