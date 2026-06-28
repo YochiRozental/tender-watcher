@@ -32,10 +32,10 @@ def send_single_item(item: dict) -> bool:
     return False
 
 
-def send_to_make(items: list[dict]) -> None:
+def send_to_make(items: list[dict]) -> dict:
     if not items:
         print("No items to send to Make.")
-        return
+        return {"sent": 0, "failed": 0}
 
     sent_count = 0
     failed_count = 0
@@ -47,3 +47,5 @@ def send_to_make(items: list[dict]) -> None:
             failed_count += 1
 
     print(f"Make notification summary: sent={sent_count}, failed={failed_count}")
+
+    return {"sent": sent_count, "failed": failed_count}

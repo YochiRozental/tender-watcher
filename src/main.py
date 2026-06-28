@@ -99,13 +99,18 @@ def print_summary(
         valid_tenders: list[dict],
         successful_sources: int,
         failed_sources: int,
+        send_summary: dict,
 ) -> None:
     print("\n======================")
+    print("סיכום ריצה יומית")
+    print("======================")
     print(f"מקורות שנסרקו בהצלחה: {successful_sources}")
     print(f"מקורות שנכשלו: {failed_sources}")
     print(f"סה״כ נמצאו {len(all_results)} תוצאות")
     print(f"מכרזים רלוונטיים לאדריכלות: {len(architecture_tenders)}")
     print(f"מכרזים עם קישור תקין: {len(valid_tenders)}")
+    print(f"נשלחו ל־Make בהצלחה: {send_summary['sent']}")
+    print(f"נכשלו בשליחה ל־Make: {send_summary['failed']}")
     print("======================\n")
 
 
@@ -129,7 +134,7 @@ def main() -> None:
     valid_tenders = keep_accessible_urls(architecture_tenders)
     items_to_send = add_date_found(valid_tenders)
 
-    send_to_make(items_to_send)
+    send_summary = send_to_make(items_to_send)
 
     print_summary(
         all_results=all_results,
@@ -137,6 +142,7 @@ def main() -> None:
         valid_tenders=valid_tenders,
         successful_sources=successful_sources,
         failed_sources=failed_sources,
+        send_summary=send_summary,
     )
 
     print_tenders(valid_tenders)
