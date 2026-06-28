@@ -1,6 +1,6 @@
 import json
 
-from scraper import scan_source
+from src.scraper import scan_source
 
 
 def load_candidate_sources() -> list[dict]:

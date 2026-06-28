@@ -1,6 +1,10 @@
+import os
 import requests
+from dotenv import load_dotenv
 
-WEBHOOK_URL = "https://hook.us1.make.com/227hgqrziy3g5yqece18jshnxedwi74m"
+load_dotenv()
+
+WEBHOOK_URL = os.getenv("MAKE_WEBHOOK_URL")
 
 payload = {
     "date_found": "2026-06-24",
@@ -8,10 +12,17 @@ payload = {
     "source": "עיריית בני ברק - מכרזים",
     "title": "מכרז 133-26 לקבלת שירותי תכנון ויועץ מיזוג אויר",
     "url": "https://example.com/tender.pdf",
+    "source_page_url": "https://www.bnei-brak.muni.il/",
     "tender_number": "133-26",
+    "architecture_related": True,
+    "safe_url": "https://example.com/tender.pdf",
 }
 
-response = requests.post(WEBHOOK_URL, json=payload, timeout=30)
+if not WEBHOOK_URL:
+    raise RuntimeError("MAKE_WEBHOOK_URL is missing")
 
-print(response.status_code)
-print(response.text)
+if __name__ == "__main__":
+    response = requests.post(WEBHOOK_URL, json=payload, timeout=30)
+
+    print(response.status_code)
+    print(response.text)
