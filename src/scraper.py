@@ -150,6 +150,9 @@ def scan_source(source: dict) -> list[dict]:
         context_text = get_context_text(link)
         search_text = f"{clean_title} {context_text} {full_url}"
 
+        if not is_tender(search_text):
+            continue
+
         is_pdf = is_pdf_url(full_url)
         is_tender_page = is_tender_page_url(full_url)
 
@@ -157,9 +160,6 @@ def scan_source(source: dict) -> list[dict]:
             continue
 
         if full_url in seen_urls:
-            continue
-
-        if not is_tender(search_text):
             continue
 
         seen_urls.add(full_url)

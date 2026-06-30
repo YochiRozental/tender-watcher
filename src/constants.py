@@ -119,9 +119,15 @@ SKIP_URL_PARTS = [
     "#",
     "קישור-למכרזים",
     "/herum/",
+    "/wp-json/",
+    "/feed/",
+    "/tag/",
+    "/author/",
+    "/category/",
 ]
 
 SKIP_URL_PATTERNS = [
     r"/bids/\d+/?$",
     r"/page/\d+/?$",
+    r"\.(jpg|jpeg|png|gif|svg|webp|zip|rar|doc|docx|xls|xlsx)$",
 ]
