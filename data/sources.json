@@ -19,7 +19,7 @@
     "id": "tiberias-economic",
     "city": "טבריה",
     "type": "economic_company",
-    "enabled": true,
+    "enabled": false,
     "name": "החברה הכלכלית טבריה",
     "url": "https://www.calcalit-tverya.co.il/Pages/tenders.aspx"
   },

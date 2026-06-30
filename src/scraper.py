@@ -4,6 +4,11 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
+from src.constants import (
+    SKIP_TITLES,
+    SKIP_URL_PARTS,
+    SKIP_URL_PATTERNS,
+)
 from src.filters import (
     is_tender,
     is_architecture_related,
@@ -37,15 +42,6 @@ GENERIC_TITLES = {
     "קובץ מצורף",
 }
 
-SKIP_URL_PARTS = [
-    "קישור-למכרזים",
-    "/herum/",
-]
-
-SKIP_URL_PATTERNS = [
-    r"/bids/\d+/?$",
-]
-
 
 def is_tender_page_url(url: str) -> bool:
     lower_url = url.lower()
@@ -68,6 +64,38 @@ def get_context_text(link) -> str:
     return parent.get_text(" ", strip=True)
 
 
+def normalize_url(url: str) -> str:
+    return url.replace(
+        "https://www.givat-zeev.muni.il/bids/bids/",
+        "https://www.givat-zeev.muni.il/bids/",
+    )
+
+
+SKIP_TITLES_LOWER = {
+    title.lower()
+    for title in SKIP_TITLES
+}
+
+
+def should_skip_link(title: str, url: str) -> bool:
+    clean_title = (title or "").strip().lower()
+    lower_url = (url or "").lower()
+
+    if not lower_url:
+        return True
+
+    if clean_title in SKIP_TITLES_LOWER:
+        return True
+
+    if any(part in lower_url for part in SKIP_URL_PARTS):
+        return True
+
+    if any(re.search(pattern, lower_url) for pattern in SKIP_URL_PATTERNS):
+        return True
+
+    return False
+
+
 def scan_source(source: dict) -> list[dict]:
     print(f"\nבודק מקור: {source['name']}")
 
@@ -87,6 +115,7 @@ def scan_source(source: dict) -> list[dict]:
     results = []
     seen_urls = set()
 
+
     for link in soup.find_all("a"):
         title = link.get_text(" ", strip=True)
         href = link.get("href")
@@ -99,15 +128,9 @@ def scan_source(source: dict) -> list[dict]:
             href,
         )
 
-        full_url = full_url.replace(
-            "https://www.givat-zeev.muni.il/bids/bids/",
-            "https://www.givat-zeev.muni.il/bids/",
-        )
+        full_url = normalize_url(full_url)
 
-        if any(part in full_url for part in SKIP_URL_PARTS):
-            continue
-
-        if any(re.search(pattern, full_url) for pattern in SKIP_URL_PATTERNS):
+        if should_skip_link(title, full_url):
             continue
 
         clean_title = title.strip() if title else ""
