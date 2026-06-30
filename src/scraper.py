@@ -53,6 +53,9 @@ def is_tender_page_url(url: str) -> bool:
             or "tender" in lower_url
             or "tenders" in lower_url
             or "מכרז" in url
+            or "/freedomofinformation/lists/list1/customdispform.aspx" in lower_url
+            or "/freedomofinformation/lists/list/customdispform.aspx" in lower_url
+            or "customdispform.aspx" in lower_url
     )
 
 
@@ -65,10 +68,17 @@ def get_context_text(link) -> str:
 
 
 def normalize_url(url: str) -> str:
-    return url.replace(
+    url = url.replace(
         "https://www.givat-zeev.muni.il/bids/bids/",
         "https://www.givat-zeev.muni.il/bids/",
     )
+
+    url = url.replace(
+        "https://www.elad.muni.il/FreedomOfInformation//Lists/",
+        "https://www.elad.muni.il/FreedomOfInformation/Lists/",
+    )
+
+    return url
 
 
 SKIP_TITLES_LOWER = {
@@ -114,7 +124,6 @@ def scan_source(source: dict) -> list[dict]:
 
     results = []
     seen_urls = set()
-
 
     for link in soup.find_all("a"):
         title = link.get_text(" ", strip=True)
