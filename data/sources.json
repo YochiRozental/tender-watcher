@@ -174,5 +174,21 @@
     "enabled": false,
     "name": "עיריית עפולה - ארכיון מכרזים",
     "url": "https://www.afula.muni.il/bids/?archive=1"
+  },
+  {
+    "id": "netivot-bids",
+    "city": "נתיבות",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית נתיבות - מכרזים",
+    "url": "https://www.netivot.muni.il/bids/"
+  },
+  {
+    "id": "netivot-bids-archive",
+    "city": "נתיבות",
+    "type": "municipality",
+    "enabled": false,
+    "name": "עיריית נתיבות - ארכיון מכרזים",
+    "url": "https://www.netivot.muni.il/bids/?archive=1"
   }
 ]
