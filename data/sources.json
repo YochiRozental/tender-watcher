@@ -142,5 +142,37 @@
     "enabled": true,
     "name": "עיריית אלעד - ארכיון מכרזים",
     "url": "https://www.elad.muni.il/FreedomOfInformation/Pages/ArchivesBids.aspx"
+  },
+  {
+    "id": "zefat-bids",
+    "city": "צפת",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית צפת - מכרזים",
+    "url": "https://www.zefat.muni.il/bids/"
+  },
+  {
+    "id": "zefat-bids-archive",
+    "city": "צפת",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית צפת - ארכיון מכרזים",
+    "url": "https://www.zefat.muni.il/gd_bid/"
+  },
+  {
+    "id": "afula-bids",
+    "city": "עפולה",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית עפולה - מכרזים",
+    "url": "https://www.afula.muni.il/bids/"
+  },
+  {
+    "id": "afula-bids-archive",
+    "city": "עפולה",
+    "type": "municipality",
+    "enabled": false,
+    "name": "עיריית עפולה - ארכיון מכרזים",
+    "url": "https://www.afula.muni.il/bids/?archive=1"
   }
 ]
