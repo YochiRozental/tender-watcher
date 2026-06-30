@@ -190,5 +190,21 @@
     "enabled": false,
     "name": "עיריית נתיבות - ארכיון מכרזים",
     "url": "https://www.netivot.muni.il/bids/?archive=1"
+  },
+  {
+    "id": "ofakim-bids",
+    "city": "אופקים",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית אופקים - מכרזים",
+    "url": "https://www.ofaqim.muni.il/bids/"
+  },
+  {
+    "id": "ofakim-bids-archive",
+    "city": "אופקים",
+    "type": "municipality",
+    "enabled": false,
+    "name": "עיריית אופקים - ארכיון מכרזים",
+    "url": "https://www.ofaqim.muni.il/bids/?archive=1"
   }
 ]
