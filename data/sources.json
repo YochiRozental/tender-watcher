@@ -78,5 +78,37 @@
     "enabled": true,
     "name": "עיריית ביתר עילית - מכרזים",
     "url": "https://betar-illit.muni.il/bids/"
+  },
+  {
+    "id": "modiin-illit-bids-archive",
+    "city": "מודיעין עילית",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית מודיעין עילית - ארכיון מכרזים",
+    "url": "https://www.modil.org.il/bids/?archive=1"
+  },
+  {
+    "id": "betar-illit-bids-archive",
+    "city": "ביתר עילית",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית ביתר עילית - ארכיון מכרזים",
+    "url": "https://www.betar-illit.muni.il/bids/?archive=1"
+  },
+  {
+    "id": "givat-zeev-bids",
+    "city": "גבעת זאב",
+    "type": "municipality",
+    "enabled": true,
+    "name": "מועצה מקומית גבעת זאב - מכרזים ודרושים",
+    "url": "https://www.givat-zeev.muni.il/bids/"
+  },
+  {
+    "id": "givat-zeev-bids-archive",
+    "city": "גבעת זאב",
+    "type": "municipality",
+    "enabled": true,
+    "name": "מועצה מקומית גבעת זאב - ארכיון מכרזים ודרושים",
+    "url": "https://www.givat-zeev.muni.il/bids/?archive=1"
   }
 ]

@@ -76,6 +76,10 @@ NON_PLANNING_EXCLUDE_KEYWORDS = [
     "הסעות",
     "קייטרינג",
     "מזון",
+    "השכרת",
+    "להשכרת",
+    "שכירות",
+    "להשכרה",
 ]
 
 PLANNING_KEYWORDS = [

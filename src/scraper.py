@@ -98,6 +98,12 @@ def scan_source(source: dict) -> list[dict]:
             source["url"],
             href,
         )
+
+        full_url = full_url.replace(
+            "https://www.givat-zeev.muni.il/bids/bids/",
+            "https://www.givat-zeev.muni.il/bids/",
+        )
+
         if any(part in full_url for part in SKIP_URL_PARTS):
             continue
 
