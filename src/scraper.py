@@ -1,3 +1,4 @@
+import re
 from urllib.parse import urljoin
 
 import requests
@@ -35,6 +36,15 @@ GENERIC_TITLES = {
     "pdf",
     "קובץ מצורף",
 }
+
+SKIP_URL_PARTS = [
+    "קישור-למכרזים",
+    "/herum/",
+]
+
+SKIP_URL_PATTERNS = [
+    r"/bids/\d+/?$",
+]
 
 
 def is_tender_page_url(url: str) -> bool:
@@ -88,6 +98,11 @@ def scan_source(source: dict) -> list[dict]:
             source["url"],
             href,
         )
+        if any(part in full_url for part in SKIP_URL_PARTS):
+            continue
+
+        if any(re.search(pattern, full_url) for pattern in SKIP_URL_PATTERNS):
+            continue
 
         clean_title = title.strip() if title else ""
 
