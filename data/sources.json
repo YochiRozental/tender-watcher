@@ -11,7 +11,7 @@
     "id": "tiberias-bids-archive",
     "city": "טבריה",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית טבריה - ארכיון מכרזים",
     "url": "https://www.tiberias.muni.il/bids/"
   },
@@ -35,7 +35,7 @@
     "id": "bnei-brak-bids-archive",
     "city": "בני ברק",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית בני ברק - ארכיון מכרזים",
     "url": "https://www.bnei-brak.muni.il/bids/category/mikhrazim/"
   },
@@ -83,7 +83,7 @@
     "id": "modiin-illit-bids-archive",
     "city": "מודיעין עילית",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית מודיעין עילית - ארכיון מכרזים",
     "url": "https://www.modil.org.il/bids/?archive=1"
   },
@@ -91,7 +91,7 @@
     "id": "betar-illit-bids-archive",
     "city": "ביתר עילית",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית ביתר עילית - ארכיון מכרזים",
     "url": "https://www.betar-illit.muni.il/bids/?archive=1"
   },
@@ -107,7 +107,7 @@
     "id": "givat-zeev-bids-archive",
     "city": "גבעת זאב",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "מועצה מקומית גבעת זאב - ארכיון מכרזים ודרושים",
     "url": "https://www.givat-zeev.muni.il/bids/?archive=1"
   },
@@ -123,7 +123,7 @@
     "id": "bet-shemesh-bids-archive",
     "city": "בית שמש",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית בית שמש - ארכיון מכרזים",
     "url": "https://www.betshemesh.muni.il/100047/"
   },
@@ -139,7 +139,7 @@
     "id": "elad-bids-archive",
     "city": "אלעד",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית אלעד - ארכיון מכרזים",
     "url": "https://www.elad.muni.il/FreedomOfInformation/Pages/ArchivesBids.aspx"
   },
@@ -155,7 +155,7 @@
     "id": "zefat-bids-archive",
     "city": "צפת",
     "type": "municipality",
-    "enabled": true,
+    "enabled": false,
     "name": "עיריית צפת - ארכיון מכרזים",
     "url": "https://www.zefat.muni.il/gd_bid/"
   },
