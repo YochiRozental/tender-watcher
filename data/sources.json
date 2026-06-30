@@ -1,37 +1,82 @@
 [
   {
+    "id": "tiberias-bids",
     "city": "טבריה",
+    "type": "municipality",
+    "enabled": true,
     "name": "עיריית טבריה - מכרזים",
     "url": "https://www.tiberias.muni.il/council_services/toshav/bids/"
   },
   {
+    "id": "tiberias-bids-archive",
     "city": "טבריה",
+    "type": "municipality",
+    "enabled": true,
     "name": "עיריית טבריה - ארכיון מכרזים",
     "url": "https://www.tiberias.muni.il/bids/"
   },
   {
+    "id": "tiberias-economic",
     "city": "טבריה",
+    "type": "economic_company",
+    "enabled": true,
     "name": "החברה הכלכלית טבריה",
     "url": "https://www.calcalit-tverya.co.il/Pages/tenders.aspx"
   },
   {
+    "id": "bnei-brak-bids",
     "city": "בני ברק",
+    "type": "municipality",
+    "enabled": true,
     "name": "עיריית בני ברק - מכרזים",
     "url": "https://www.bnei-brak.muni.il/freedom-information/bids/bids-2/"
   },
   {
+    "id": "bnei-brak-bids-archive",
     "city": "בני ברק",
+    "type": "municipality",
+    "enabled": true,
     "name": "עיריית בני ברק - ארכיון מכרזים",
     "url": "https://www.bnei-brak.muni.il/bids/category/mikhrazim/"
   },
   {
+    "id": "government-procurement",
     "city": "ארצי",
+    "type": "government",
+    "enabled": true,
     "name": "מינהל הרכש הממשלתי",
     "url": "https://mr.gov.il"
   },
   {
+    "id": "mashcal",
     "city": "ארצי",
+    "type": "government",
+    "enabled": true,
     "name": "החברה למשק וכלכלה",
     "url": "https://www.mashcal.co.il"
+  },
+  {
+    "id": "modiin-illit-bids",
+    "city": "מודיעין עילית",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית מודיעין עילית - מכרזים",
+    "url": "https://www.modil.org.il/bids/"
+  },
+  {
+    "id": "modiin-illit-development",
+    "city": "מודיעין עילית",
+    "type": "economic_company",
+    "enabled": true,
+    "name": "החברה לפיתוח מודיעין עילית",
+    "url": "https://www.modil.co.il/bids"
+  },
+  {
+    "id": "betar-illit-bids",
+    "city": "ביתר עילית",
+    "type": "municipality",
+    "enabled": true,
+    "name": "עיריית ביתר עילית - מכרזים",
+    "url": "https://betar-illit.muni.il/bids/"
   }
 ]

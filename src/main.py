@@ -10,7 +10,13 @@ from src.utils import encode_url
 
 def load_sources() -> list[dict]:
     with open(SOURCES_FILE, "r", encoding="utf-8") as file:
-        return json.load(file)
+        sources = json.load(file)
+
+    return [
+        source
+        for source in sources
+        if source.get("enabled", True)
+    ]
 
 
 def collect_tenders(sources: list[dict]) -> tuple[list[dict], int, int]:
@@ -88,7 +94,7 @@ def keep_accessible_urls(items: list[dict]) -> list[dict]:
         if is_url_accessible(url):
             valid_items.append(item)
         else:
-            print(f"קישור לא תקין, מדלג: {url}")
+            print(f"קישור לא תקין, מדלג: {item.get('title')} | {url}")
 
     return valid_items
 
