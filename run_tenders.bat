@@ -5,9 +5,9 @@ cd /d "C:\Users\Yochi\Desktop\tender-watcher"
 
 if not exist logs mkdir logs
 
-for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format yyyy"') do set "YEAR=%%i"
-for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format MM"') do set "MONTH=%%i"
-for /f "delims=" %%i in ('powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"') do set "NOW=%%i"
+for /f %%i in ('powershell -NoProfile -Command "(Get-Date).ToString('yyyy')"') do set "YEAR=%%i"
+for /f %%i in ('powershell -NoProfile -Command "(Get-Date).ToString('MM')"') do set "MONTH=%%i"
+for /f "delims=" %%i in ('powershell -NoProfile -Command "(Get-Date).ToString('dd-MM-yyyy HH:mm:ss')"') do set "NOW=%%i"
 for /f "delims=" %%i in ('git rev-parse --short HEAD') do set "GIT_COMMIT=%%i"
 
 call ".venv\Scripts\activate.bat"
@@ -27,8 +27,10 @@ echo =============================================================>>"%LOGFILE%"
 
 python -X utf8 -m src.main >>"%LOGFILE%" 2>&1
 
+for /f "delims=" %%i in ('powershell -NoProfile -Command "(Get-Date).ToString('dd-MM-yyyy HH:mm:ss')"') do set "FINISH=%%i"
+
 echo =============================================================>>"%LOGFILE%"
-echo Run finished: %date% %time%>>"%LOGFILE%"
+echo Run finished: %FINISH%>>"%LOGFILE%"
 echo =============================================================>>"%LOGFILE%"
 
 endlocal
